@@ -8,9 +8,9 @@ public class Lawyer extends Employee {
 		
 	}
 	
-	public void showAllEmployeeData(Employee employee) {
+	public void showAllEmployeeData() {
 		
-		employee.showBasicInformation(employee);
+		showBasicInformation();
 		
 	}
 	

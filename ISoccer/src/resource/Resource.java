@@ -68,4 +68,14 @@ public class Resource {
 	public void obtainResourceComplete() {
 	}
 	
+	public void showBasicInformationResource() {
+		
+		System.out.println("Availability: " + getAvailability());
+		
+	}
+	
+	public void showAllInformationResource() {	
+		
+	}
+	
 }

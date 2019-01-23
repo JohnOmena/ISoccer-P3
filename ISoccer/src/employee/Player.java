@@ -79,12 +79,12 @@ public class Player extends Employee {
 		
 	}
 	
-	public void showAllEmployeeData(Employee employee) {
+	public void showAllEmployeeData() {
 		
-		employee.showBasicInformation(employee);
+		showBasicInformation();
 		
-		System.out.println("Player Type: " + ((Player)employee).getPlayerType()
-						+ "Availability: " + ((Player)employee).getAvailability());
+		System.out.println("Player Type: " + getPlayerType()
+						+ "Availability: " + getAvailability());
 		
 	}
 	

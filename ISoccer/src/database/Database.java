@@ -1,15 +1,10 @@
 package database;
 import java.util.ArrayList;
 import java.util.Scanner;
-import employee.Cooker;
-import employee.Doctor;
-import employee.Driver;
 import employee.Employee;
-import employee.Lawyer;
-import employee.PersonalTrainer;
 import employee.Player;
-import employee.President;
 import employee.Technician;
+import fan.ContributionSetup;
 import fan.Fan;
 import resource.Bus;
 import resource.Resource;
@@ -19,17 +14,17 @@ import useful.Utilities;
 
 public class Database {
 
-	ArrayList<Employee> employess = new ArrayList<Employee>();
+	ArrayList<Employee> employees = new ArrayList<Employee>();
 	ArrayList<Fan> fans = new ArrayList<Fan>();
 	ArrayList<Resource> resources = new ArrayList<Resource>();	
 	Scanner input = new Scanner(System.in);
 	
 	public void addEmployee(Employee employee) {
-		this.employess.add(employee);
+		this.employees.add(employee);
 	}
 	
 	public int getEmployeeNumber() {
-		return this.employess.size();
+		return this.employees.size();
 	}
 
 	public void addFan(Fan fan) {
@@ -45,7 +40,7 @@ public class Database {
 		System.out.println("What is the player's cpf?");
 		String cpf = input.nextLine();
 		
-		for(Employee employee : this.employess) {
+		for(Employee employee : this.employees) {
 			
 			if(employee.getCpf().equals(cpf)) {
 				
@@ -129,25 +124,69 @@ public class Database {
 	
 	public void teamMemberReport() {
 		
+		for(Employee employee : employees) {
+			if(employee instanceof Technician) {
+				employee.showAllEmployeeData();
+			}
+		}
+		
+		for(Employee employee : employees) {
+			if(employee instanceof Player) {
+				employee.showAllEmployeeData();
+			}
+		}
+		
 	}
 	
 	public void playerAvailabilityReport() {
+		
+		for(Employee employee : employees ) {
+			if (employee instanceof Player) {
+				System.out.println("Name:" + ((Player)employee).getName()
+						+ "Player Type:" + ((Player)employee).getPlayerType()
+						 );
+				
+			}
+		}
 		
 	}
 	
 	public void allEmployerReport() {
 		
+		for(Employee employee : employees) {
+			employee.showAllEmployeeData();
+		}
+		
 	}
 	
 	public void stadiumTrainingCenterReport() {
+		
+		for(Resource resource : resources) {
+			if(resource instanceof Stadium || resource instanceof TrainingCenter) {
+				resource.showAllInformationResource();
+			}
+		}
+		
 		
 	}
 	
 	public void transportReport() {
 		
+		for(Resource resource : resources) {
+			if(resource instanceof Bus) {
+				resource.showAllInformationResource();
+			}
+		}
+		
 	}
 	
-	public void allFanReport() {
+	public void allFanReport(ContributionSetup contributionSetup) {
+		
+		System.out.println("There are" + fans.size() + "fans");
+		
+		for(Fan fan : fans) {
+			fan.getAllInformationFan(contributionSetup);
+		}
 		
 	}
 	

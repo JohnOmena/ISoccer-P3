@@ -68,4 +68,14 @@ public class Stadium extends Resource{
 		
 	}
 	
+	public void showAllInformationResource() {
+		
+		showBasicInformationResource();
+		
+		System.out.println("Stadium name: " + getStadiumName()
+						+ "Fan capacity:" + getFanCapacity()
+						+ "Total snack bar: " + getTotalSnackBar()
+						+ "Total toilet: " + getTotalToilet());
+	}
+	
 }

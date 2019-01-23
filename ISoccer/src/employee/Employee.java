@@ -51,13 +51,13 @@ public class Employee {
 		return this.phoneNumber;
 	}
 	
-	public void showBasicInformation(Employee employee) {
+	public void showBasicInformation() {
 	
-		System.out.println("Name: " + employee.getName()
-						+ "Email: " + employee.getEmail()
-						+ "CPF: " + employee.getCpf()
-						+ "Salary: " + employee.getSalary()
-						+ "phoneNumber: " + employee.getPhoneNumber());
+		System.out.println("Name: " + getName()
+						+ "Email: " + getEmail()
+						+ "CPF: " + getCpf()
+						+ "Salary: " + getSalary()
+						+ "phoneNumber: " + getPhoneNumber());
 	
 	}			
 	
@@ -148,7 +148,7 @@ public class Employee {
 	public void setAvailable(boolean availabe) {	
 	}
 	
-	public void showAllEmployeeData(Employee employee) {	
+	public void showAllEmployeeData() {	
 	}
 	
 }

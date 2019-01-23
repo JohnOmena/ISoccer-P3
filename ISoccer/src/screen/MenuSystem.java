@@ -66,7 +66,7 @@ public class MenuSystem {
 				break;
 			case 5:
 				ReportMenu reportMenu = new ReportMenu();
-				reportMenu.reportMenuScreen(database);
+				reportMenu.reportMenuScreen(database, contributionSetup);
 				break;			
 			case 6:
 				ResourceMenu resourceMenu = new ResourceMenu();

@@ -1,13 +1,14 @@
 package screen;
 import java.util.Scanner;
 import database.Database;
+import fan.ContributionSetup;
 import useful.Utilities;
 
 public class ReportMenu {
 
 	Scanner input = new Scanner(System.in);
 	
-	public void reportMenuScreen(Database database) {
+	public void reportMenuScreen(Database database, ContributionSetup contributionSetup) {
 		
 		boolean flagFlow = true;
 		
@@ -29,13 +30,13 @@ public class ReportMenu {
 			int option = input.nextInt();
 			input.nextLine();
 			
-			flagFlow = reportMenuDecision(option, database);
+			flagFlow = reportMenuDecision(option, database, contributionSetup);
 			
 		} while(flagFlow);
 	
 	}
 	
-	public boolean reportMenuDecision(int option, Database database) {
+	public boolean reportMenuDecision(int option, Database database, ContributionSetup contributionSetup) {
 		
 		switch(option) {
 			
@@ -55,7 +56,7 @@ public class ReportMenu {
 				database.transportReport();
 				break;
 			case 6:
-				database.allFanReport();
+				database.allFanReport(contributionSetup);
 				break;
 			case 7:
 				return false;

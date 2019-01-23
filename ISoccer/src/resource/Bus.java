@@ -38,4 +38,10 @@ public class Bus extends Resource{
 		
 	}
 	
+	public void showAllInformationResource() {
+		
+		showBasicInformationResource();
+		
+	}
+	
 }

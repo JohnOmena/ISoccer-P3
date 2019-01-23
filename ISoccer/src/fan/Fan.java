@@ -113,5 +113,18 @@ public class Fan {
 		
 	}
 	
+	public void getBasicInformationFan() {
+		
+		System.out.println("Name: " + getName()
+						+ "Email: " + getEmail()
+						+ "CPF: " + getCpf()
+						+ "PhoneNumber: " + getPhoneNumber()
+						+  "Adress: " + getAdress());
+		
+	}
+	
+	public void getAllInformationFan(ContributionSetup contributionSetup) {
+		
+	}
 	
 }

@@ -21,11 +21,11 @@ public class Driver extends Employee {
 		
 	}
 	
-	public void showAllEmployeeData(Employee employee) {
+	public void showAllEmployeeData() {
 		
-		employee.showBasicInformation(employee);
+		showBasicInformation();
 		
-		System.out.println("Enrollmente Number: " + ((Driver)employee).getEnrollmenteNumber());
+		System.out.println("Enrollmente Number: " + getEnrollmenteNumber());
 		
 	}
 	

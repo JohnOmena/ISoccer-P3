@@ -21,11 +21,11 @@ public class Doctor extends Employee {
 		
 	}
 	
-	public void showAllEmployeeData(Employee employee) {
+	public void showAllEmployeeData() {
 		
-		employee.showBasicInformation(employee);
+		showBasicInformation();
 		
-		System.out.println("CRM: " + ((Doctor)employee).getCrm());
+		System.out.println("CRM: " + getCrm());
 		
 	}
 	

@@ -8,9 +8,9 @@ public class Cooker extends Employee {
 		
 	}
 	
-	public void showAllEmployeeData(Employee employee) {
+	public void showAllEmployeeData() {
 		
-		employee.showBasicInformation(employee);
+		showBasicInformation();
 		
 	}
 

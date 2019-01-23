@@ -6,12 +6,12 @@ import useful.Utilities;
 
 public class Fan {
 	
+	Scanner input = new Scanner(System.in);
 	public String name;
 	public String email;
 	public String cpf;
 	public String phoneNumber;
 	public String adress;
-	Scanner input = new Scanner(System.in);
 	
 	public void setName(String name) {
 		this.name = name;
@@ -72,12 +72,13 @@ public class Fan {
 		
 	}
 	
-	public Fan typeOfFan() {
+	public Fan typeOfFan(Fan fan) {
 		
-		boolean flagFlow = false;
-		Fan fan = null;
+		boolean flagFlow;
 		
 		do {	
+			
+			flagFlow = false;
 			
 			Utilities.cleanScreen();
 			System.out.println("Choose the type of fan:");
@@ -86,6 +87,7 @@ public class Fan {
 			System.out.println("[3] Elite");
 			
 			int option = input.nextInt();
+			input.nextLine();
 			
 			switch(option) {
 			
@@ -99,18 +101,17 @@ public class Fan {
 					fan = new Elite();
 					break;
 				default:
-					System.out.println("Choose a true option!");
+					System.out.println("Choose a true option, press any key to try again.");
+					input.nextLine();
 					flagFlow = true;
 			}
-			
-			if(option > 3 && option < 1) {
-				flagFlow = false;
-			} 
+		
 			
 		} while(flagFlow);
 		
 		return fan;
 		
 	}
+	
 	
 }

@@ -1,7 +1,10 @@
 package employee;
+import java.util.Scanner;
+import useful.Utilities;
 
-public abstract class Employee {
+public class Employee {
 
+	Scanner input = new Scanner(System.in);
 	public String name;
 	public String email;
 	public String cpf;
@@ -48,8 +51,104 @@ public abstract class Employee {
 		return this.phoneNumber;
 	}
 	
-	public void createEmployee() {
+	public void showBasicInformation(Employee employee) {
+	
+		System.out.println("Name: " + employee.getName()
+						+ "Email: " + employee.getEmail()
+						+ "CPF: " + employee.getCpf()
+						+ "Salary: " + employee.getSalary()
+						+ "phoneNumber: " + employee.getPhoneNumber());
+	
+	}			
+	
+	public Employee typeOfEmployee() {
 		
+		Employee employee = null;
+		boolean flagFlow;
+		
+		do {
+			
+			flagFlow = false;
+			
+			Utilities.cleanScreen();
+			System.out.println("Choose the type of employee:");
+			System.out.println("[1] Cooker");
+			System.out.println("[2] Doctor");
+			System.out.println("[3] Driver");
+			System.out.println("[4] Lawyer");
+			System.out.println("[5] PersonalTrainer");
+			System.out.println("[6] Player");
+			System.out.println("[7] President");
+			System.out.println("[8] Technician");
+			
+			int option = input.nextInt();
+			input.nextInt();
+			
+			switch(option) {
+			
+				case 1:
+					employee = new Cooker();
+					break; 
+				case 2:
+					employee = new Doctor();
+					break;
+				case 3:
+					employee = new Driver();
+					break;
+				case 4:
+					employee = new Lawyer();
+					break;
+				case 5:
+					employee = new PersonalTrainer();
+					break;
+				case 6:
+					employee = new Player();
+					break;
+				case 7:
+					employee = new President();
+					break;
+				case 8:
+					employee = new Technician();
+					break;
+				default:
+					System.out.println("Choose a true option, press any key to try again.");
+					input.nextLine();
+					flagFlow = true;
+			}
+			
+		} while(flagFlow);
+		
+		return employee;
+		
+	}
+	
+	public void setEmployeeData() {
+		
+		System.out.println("Name:");
+		setName(input.nextLine());
+		
+		System.out.println("E-mail:");
+		setEmail(input.nextLine());
+		
+		System.out.println("CPF:");
+		setCpf(input.nextLine());
+		
+		System.out.println("Salary:");
+		setSalary(input.nextDouble());
+		input.nextLine();
+		
+		System.out.println("Phone Number:");
+		setPhoneNumber(input.nextLine());
+		
+	}
+	
+	public void obtainEmployeeComplete() {
+	}
+	
+	public void setAvailable(boolean availabe) {	
+	}
+	
+	public void showAllEmployeeData(Employee employee) {	
 	}
 	
 }

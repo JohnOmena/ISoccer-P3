@@ -12,4 +12,21 @@ public class Driver extends Employee {
 		return this.enrollmentNumber;
 	}
 	
+	public void obtainEmployeeComplete() {
+		
+		setEmployeeData();
+		
+		System.out.println("enrollmentNumber:");
+		setEnrollmentNumber(input.nextLine());
+		
+	}
+	
+	public void showAllEmployeeData(Employee employee) {
+		
+		employee.showBasicInformation(employee);
+		
+		System.out.println("Enrollmente Number: " + ((Driver)employee).getEnrollmenteNumber());
+		
+	}
+	
 }

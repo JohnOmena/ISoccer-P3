@@ -6,8 +6,8 @@ import system.Administrator;
 import useful.Utilities;
 
 public class Start {
-
-	Scanner input = new Scanner(System.in);
+	
+	static Scanner input = new Scanner(System.in);
 	
 	public void startSystemScreen(Administrator adm, Database database, ContributionSetup contributionSetup) {
 		

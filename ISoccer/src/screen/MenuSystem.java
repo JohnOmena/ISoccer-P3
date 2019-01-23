@@ -1,6 +1,7 @@
 package screen;
 import java.util.Scanner;
 import database.Database;
+import employee.Employee;
 import fan.ContributionSetup;
 import fan.Fan;
 import useful.Utilities;
@@ -21,9 +22,10 @@ public class MenuSystem {
 			System.out.println("[1] - Add Employee");
 			System.out.println("[2] - Add Fan");
 			System.out.println("[3] - Set Contribution Setup");
-			System.out.println("[4] - Access Resource Menu");
+			System.out.println("[4] - Change Player Availability");
 			System.out.println("[5] - Access Report Menu");
-			System.out.println("[6] - Exit");
+			System.out.println("[6] - Access Resource Menu");
+			System.out.println("[7] - Exit");
 			System.out.println("--------------------------");
 			System.out.println("=> Choose an option: ");
 	
@@ -39,10 +41,20 @@ public class MenuSystem {
 		switch(option) {
 		
 			case 1:
-				database.addEmployee();
+				Employee employee = new Employee();
+				employee = employee.typeOfEmployee();
+				employee.obtainEmployeeComplete();
+				database.addEmployee(employee);
 				break;
 			case 2:
-				Fan fan = 
+				if(database.getFanNumber() == 0) {	
+					Utilities.cleanScreen();
+					System.out.println("First, we need this information:");
+					contributionSetup.setContributionSetup();
+				}
+				
+				Fan fan = new Fan(); 
+				fan	= fan.typeOfFan(fan);
 				fan.setFanData();
 				database.addFan(fan);
 				break;
@@ -50,19 +62,23 @@ public class MenuSystem {
 				contributionSetup.setContributionSetup();
 				break;
 			case 4:
-				acessResourceMenu();
+				database.changePlayerAvailability();
 				break;
 			case 5:
-				acessReportMenu();
-				break;
+				ReportMenu reportMenu = new ReportMenu();
+				reportMenu.reportMenuScreen(database);
+				break;			
 			case 6:
+				ResourceMenu resourceMenu = new ResourceMenu();
+				resourceMenu.resourceMenuScreen(database);
+				break;
+			case 7:
 				return false;
 			default:
-				System.out.println("Choose a true option!");
+				System.out.println("Choose a true option, press any key to try again.");
+				input.nextLine();
 		}
 		
-		System.out.println("\nPress any key to try again.");
-		String pause = input.nextLine();
 		return true;
 		
 	}

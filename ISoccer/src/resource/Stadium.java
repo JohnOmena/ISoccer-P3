@@ -50,6 +50,8 @@ public class Stadium extends Resource{
 		System.out.println("How many toilets?");
 		setTotalToilet(input.nextInt());
 		
+		input.nextLine();
+		
 		System.out.println("What is the stadium name?");
 		setStadiumName(input.nextLine());
 		
@@ -70,12 +72,13 @@ public class Stadium extends Resource{
 	
 	public void showAllInformationResource() {
 		
+		System.out.println("\nStadium name: " + getStadiumName()
+						+ "\nFan capacity:" + getFanCapacity()
+						+ "\nTotal snack bar: " + getTotalSnackBar()
+						+ "\nTotal toilet: " + getTotalToilet());
+		
 		showBasicInformationResource();
 		
-		System.out.println("Stadium name: " + getStadiumName()
-						+ "Fan capacity:" + getFanCapacity()
-						+ "Total snack bar: " + getTotalSnackBar()
-						+ "Total toilet: " + getTotalToilet());
 	}
 	
 }

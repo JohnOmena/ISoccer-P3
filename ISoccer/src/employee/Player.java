@@ -81,11 +81,11 @@ public class Player extends Employee {
 	
 	public void showAllEmployeeData() {
 		
+
+		System.out.print("\nPlayer Type: " + getPlayerType() 
+						+ "\nAvailability: " + getAvailability());
 		showBasicInformation();
-		
-		System.out.println("Player Type: " + getPlayerType()
-						+ "Availability: " + getAvailability());
-		
+	
 	}
 	
 	public void obtainEmployeeComplete() {

@@ -23,9 +23,9 @@ public class Driver extends Employee {
 	
 	public void showAllEmployeeData() {
 		
-		showBasicInformation();
-		
+		System.out.print("Driver");
 		System.out.println("Enrollmente Number: " + getEnrollmenteNumber());
+		showBasicInformation();
 		
 	}
 	

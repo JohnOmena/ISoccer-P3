@@ -30,6 +30,7 @@ public class MenuSystem {
 			System.out.println("=> Choose an option: ");
 	
 			int option = input.nextInt();
+			input.nextLine();
 			flagFlow = menuSystemDecision(option, database, contributionSetup);
 			
 		} while(flagFlow);
@@ -75,7 +76,7 @@ public class MenuSystem {
 			case 7:
 				return false;
 			default:
-				System.out.println("Choose a true option, press any key to try again.");
+				System.out.println("\nChoose a true option, press any key to try again.");
 				input.nextLine();
 		}
 		

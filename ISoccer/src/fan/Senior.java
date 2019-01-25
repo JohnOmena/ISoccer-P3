@@ -6,7 +6,7 @@ public class Senior extends Fan {
 		return contributionSetup.getSeniorContribution();
 	}
 
-	public void getAllInformationFan(ContributionSetup contributionSetup) {
+	public void showAllInformationFan(ContributionSetup contributionSetup) {
 		
 		getBasicInformationFan();
 		System.out.println("Senior contribution amount: " + getContributionValue(contributionSetup));

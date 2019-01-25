@@ -53,11 +53,11 @@ public class Employee {
 	
 	public void showBasicInformation() {
 	
-		System.out.println("Name: " + getName()
-						+ "Email: " + getEmail()
-						+ "CPF: " + getCpf()
-						+ "Salary: " + getSalary()
-						+ "phoneNumber: " + getPhoneNumber());
+		System.out.println("\nName: " + getName()
+						+ "\nEmail: " + getEmail()
+						+ "\nCPF: " + getCpf()
+						+ "\nSalary: " + getSalary()
+						+ "\nphoneNumber: " + getPhoneNumber());
 	
 	}			
 	
@@ -82,7 +82,7 @@ public class Employee {
 			System.out.println("[8] Technician");
 			
 			int option = input.nextInt();
-			input.nextInt();
+			input.nextLine();
 			
 			switch(option) {
 			

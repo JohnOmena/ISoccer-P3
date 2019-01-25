@@ -123,7 +123,7 @@ public class Fan {
 		
 	}
 	
-	public void getAllInformationFan(ContributionSetup contributionSetup) {
+	public void showAllInformationFan(ContributionSetup contributionSetup) {
 		
 	}
 	

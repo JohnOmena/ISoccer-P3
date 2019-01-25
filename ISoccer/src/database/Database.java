@@ -40,7 +40,7 @@ public class Database {
 		System.out.println("What is the player's cpf?");
 		String cpf = input.nextLine();
 		
-		for(Employee employee : this.employees) {
+		for(Employee employee : employees) {
 			
 			if(employee.getCpf().equals(cpf)) {
 				
@@ -67,7 +67,7 @@ public class Database {
 			System.out.println("[3] Training Center");
 			
 			int option = input.nextInt();
-			input.nextInt();
+			input.nextLine();
 			
 			switch(option) {
 				
@@ -79,7 +79,7 @@ public class Database {
 							return resource;
 						}
 					}
-					System.out.println("We do not have that bus, press any key to return to menu");
+					System.out.println("\nWe do not have that bus, press any key to return to menu");
 					input.nextLine();
 					break; 
 				case 2:
@@ -91,7 +91,7 @@ public class Database {
 							return resource;
 						}
 					}
-					System.out.println("We do not have this stadium, press any key to return to menu");
+					System.out.println("\nWe do not have this stadium, press any key to return to menu");
 					input.nextLine();
 					break;
 				case 3:
@@ -103,11 +103,11 @@ public class Database {
 							return resource;
 						}
 					}
-					System.out.println("We do not have this training center, press any key to return to menu");
+					System.out.println("\nWe do not have this training center, press any key to return to menu");
 					input.nextLine();
 					break;
 				default:
-					System.out.println("Choose a true option, press any key to try again.");
+					System.out.println("\nChoose a true option, press any key to try again.");
 					input.nextLine();
 					flagFlow = true;
 			}
@@ -136,18 +136,22 @@ public class Database {
 			}
 		}
 		
+		Utilities.pauseBeforeMenu();
+		
 	}
 	
 	public void playerAvailabilityReport() {
 		
 		for(Employee employee : employees ) {
 			if (employee instanceof Player) {
-				System.out.println("Name:" + ((Player)employee).getName()
-						+ "Player Type:" + ((Player)employee).getPlayerType()
-						 );
+				System.out.println("\nName: " + employee.getName()
+						+ "\nPlayer Type: " + ((Player)employee).getPlayerType()
+						+ "\nAvailability: " + ((Player) employee).getAvailability());
 				
 			}
 		}
+		
+		Utilities.pauseBeforeMenu();
 		
 	}
 	
@@ -156,6 +160,12 @@ public class Database {
 		for(Employee employee : employees) {
 			employee.showAllEmployeeData();
 		}
+		
+		if(employees.size() == 0) {
+			System.out.println("No Workers");
+		} 
+		
+		Utilities.pauseBeforeMenu();
 		
 	}
 	
@@ -167,6 +177,7 @@ public class Database {
 			}
 		}
 		
+		Utilities.pauseBeforeMenu();
 		
 	}
 	
@@ -178,6 +189,8 @@ public class Database {
 			}
 		}
 		
+		Utilities.pauseBeforeMenu();
+		
 	}
 	
 	public void allFanReport(ContributionSetup contributionSetup) {
@@ -185,8 +198,10 @@ public class Database {
 		System.out.println("There are" + fans.size() + "fans");
 		
 		for(Fan fan : fans) {
-			fan.getAllInformationFan(contributionSetup);
+			fan.showAllInformationFan(contributionSetup);
 		}
+		
+		Utilities.pauseBeforeMenu();
 		
 	}
 	

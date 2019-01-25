@@ -26,6 +26,8 @@ public class Bus extends Resource{
 		System.out.println("How many seats?");
 		setTotalChairs(input.nextInt());
 		
+		input.nextLine();
+		
 		System.out.println("What is the car plate?");
 		setCarPlate(input.nextLine());
 		
@@ -39,6 +41,8 @@ public class Bus extends Resource{
 	}
 	
 	public void showAllInformationResource() {
+		
+		System.out.println("\nCar plate: " + getCarPlate());
 		
 		showBasicInformationResource();
 		

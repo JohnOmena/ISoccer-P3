@@ -23,9 +23,9 @@ public class Doctor extends Employee {
 	
 	public void showAllEmployeeData() {
 		
-		showBasicInformation();
-		
+		System.out.print("Doctor");
 		System.out.println("CRM: " + getCrm());
+		showBasicInformation();
 		
 	}
 	

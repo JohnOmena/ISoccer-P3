@@ -64,4 +64,11 @@ public class Utilities {
 	
 	}
 
+	public static void pauseBeforeMenu() {
+		
+		System.out.println("\nPress any key to return to the menu");
+		input.nextLine();
+		
+	}
+	
 }

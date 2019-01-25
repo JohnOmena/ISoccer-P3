@@ -10,6 +10,7 @@ public class Lawyer extends Employee {
 	
 	public void showAllEmployeeData() {
 		
+		System.out.print("Lwayer");
 		showBasicInformation();
 		
 	}

@@ -6,7 +6,7 @@ public class Elite extends Fan{
 		return contributionSetup.getEliteContribution();
 	}
 	
-	public void getAllInformationFan(ContributionSetup contributionSetup) {
+	public void showAllInformationFan(ContributionSetup contributionSetup) {
 		
 		getBasicInformationFan();
 		System.out.println("Elite contribution amount: " + getContributionValue(contributionSetup));

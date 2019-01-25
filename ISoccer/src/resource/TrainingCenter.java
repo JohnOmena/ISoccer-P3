@@ -26,6 +26,8 @@ public class TrainingCenter extends Resource {
 		System.out.println("How many dorms?");
 		setTotalBedroms(input.nextInt());
 		
+		input.nextLine();
+		
 		System.out.println("What is the training center name?");
 		setTrainingCenterName(input.nextLine());
 		
@@ -36,9 +38,12 @@ public class TrainingCenter extends Resource {
 	}
 	
 	public void showAllInformationResource(){
+		
+		System.out.println("\nTraining center name: " + getTrainingCenterName()
+						+ "\nBedroms: " + getTotalBedroms());
+		
 		showBasicInformationResource();
-		System.out.println("Training center name: " + getTrainingCenterName()
-						+ "Bedroms: " + getTotalBedroms());
+	
 	}
 	
 }

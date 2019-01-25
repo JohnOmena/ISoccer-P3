@@ -4,19 +4,19 @@
 
 0.1) Criar conta do administrador (X)
 0.2) Entrar na conta de administrador (X)
-0.3) Adicionar empregados de qualquer tipo (X)
-0.4) Adicionar torcedores de qualquer tipo (X)
-0.5) Mudar o valor de contribuição para torcedores Junior, Senior e Elite (X)
-0.6) Mudar a disponibilidade de um jogador qualquer (X)
+0.3) Adicionar empregados de qualquer tipo ()
+0.4) Adicionar torcedores de qualquer tipo ()
+0.5) Mudar o valor de contribuição para torcedores Junior, Senior e Elite ()
+0.6) Mudar a disponibilidade de um jogador qualquer ()
 0.7) Adicionar Recursos de qualquer tipo (X)
 0.8) Verificar e mudar disponibilidade de um recurso (X)
 0.9) Mudar informações relacionadas as capacidades dos recursos (X)
-0.10) Mostrar um relatório contendo as informações de cada integrante do time dando prioridade ao técnico (X) 
-0.11) Mostrar a disponibilidade dos jogadores (X)
-0.12) Mostrar um relatório contendo as informações de todos os empregados (X)
+0.10) Mostrar um relatório contendo as informações de cada integrante do time dando prioridade ao técnico () 
+0.11) Mostrar a disponibilidade dos jogadores (x)
+0.12) Mostrar um relatório contendo as informações de todos os empregados ()
 0.13) Mostrar um relatório contendo as informações dos estádios e do centros de treinamento (X)
 0.14) Mostrar um relatório contendo as informações dos transportes (X)
-0.15) Mostrar um relatório contendo as informações de todos os torcedores bem como a quantidade (X)
+0.15) Mostrar um relatório contendo as informações de todos os torcedores bem como a quantidade ()
 
 1) Classes:
 

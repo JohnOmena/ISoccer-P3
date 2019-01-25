@@ -25,7 +25,7 @@ public class ResourceMenu {
 			System.out.println("=> Choose an option: ");
 	
 			int option = input.nextInt();
-			input.nextInt();
+			input.nextLine();
 			
 			flagFlow = resourceMenuDecision(option, database);
 			
@@ -55,11 +55,15 @@ public class ResourceMenu {
 				if(resource != null) {
 					resource.changeResourceCapacity();
 				}
+				
+				resource.showAllInformationResource();
+				input.nextLine();
+				
 				break;
 			case 4:
 				return false;
 			default:
-				System.out.println("Choose a true option, press any key to try again.");
+				System.out.println("\nChoose a true option, press any key to try again.");
 				input.nextLine();
 		}
 

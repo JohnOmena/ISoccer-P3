@@ -5,8 +5,8 @@ import useful.Utilities;
 
 public class Player extends Employee {
 
-	String playerType;
-	boolean availability;
+	public String playerType;
+	public boolean availability;
 	
 	public void setPlayerType(String playerType) {
 		this.playerType = playerType;

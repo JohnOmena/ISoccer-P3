@@ -2,7 +2,7 @@ package employee;
 
 public class Doctor extends Employee {
 
-	String crm;
+	public String crm;
 	
 	public void setCrm(String crm) {
 		this.crm = crm;

@@ -2,7 +2,7 @@ package employee;
 
 public class Driver extends Employee {
 
-	String enrollmentNumber;
+	public String enrollmentNumber;
 	
 	public void setEnrollmentNumber(String enrollmentNumber) {
 		this.enrollmentNumber = enrollmentNumber;

@@ -1,5 +1,5 @@
 package resource;
 
 public interface ResourceFactory {
-	Resource createResource();
+	public Resource createResource();
 }

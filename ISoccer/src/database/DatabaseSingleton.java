@@ -17,10 +17,10 @@ public class DatabaseSingleton {
 	
 	private static DatabaseSingleton database = null;
 	
-	ArrayList<Employee> employees = new ArrayList<Employee>();
-	ArrayList<Fan> fans = new ArrayList<Fan>();
-	ArrayList<Resource> resources = new ArrayList<Resource>();	
-	Scanner input = new Scanner(System.in);
+	public ArrayList<Employee> employees = new ArrayList<Employee>();
+	public ArrayList<Fan> fans = new ArrayList<Fan>();
+	public ArrayList<Resource> resources = new ArrayList<Resource>();	
+	public Scanner input = new Scanner(System.in);
 	
 	public static DatabaseSingleton getInstance() {
 		

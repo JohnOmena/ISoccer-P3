@@ -3,7 +3,7 @@ package resource;
 public class TrainingCenter extends Resource {
 
 	public String trainingCenterName;
-	public int Bedroms;
+	public int bedroms;
 	
 	public void setTrainingCenterName(String trainingCenterName) {
 		this.trainingCenterName = trainingCenterName;
@@ -14,11 +14,11 @@ public class TrainingCenter extends Resource {
 	}
 	
 	public void setTotalBedroms(int Bedroms) {
-		this.Bedroms = Bedroms;
+		this.bedroms = Bedroms;
 	}
 	
 	public int getTotalBedroms() {
-		return this.Bedroms;
+		return this.bedroms;
 	}
 	
 	public void obtainResourceComplete() {

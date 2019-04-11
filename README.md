@@ -45,4 +45,4 @@ getInstance() e o atributo privado estático database na classe DatabaseSingleto
 
 ## Diagrama UML
 
-![screenshot](isoccer_uml.png)
+![screenshot](isoccer_uml.jpg)

@@ -1,4 +1,6 @@
 package employee;
+import java.util.InputMismatchException;
+
 import useful.Utilities;
 
 public class Player extends Employee {
@@ -41,8 +43,15 @@ public class Player extends Employee {
 			System.out.println("[6] Left Side");
 			System.out.println("[7] Right Side");	
 			
-			int option = input.nextInt();
-			input.nextLine();
+			int option = 0;
+			
+			try {
+				option = input.nextInt();
+				input.nextLine();
+			} catch(InputMismatchException error01) {
+				input.nextLine();
+				System.out.println("You are not allowed to enter letters, just enter integer!");
+			}
 			
 			switch(option) {
 			

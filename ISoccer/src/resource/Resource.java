@@ -1,4 +1,5 @@
 package resource;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import useful.Utilities;
@@ -23,6 +24,7 @@ public class Resource {
 	public Resource typeOfResource() {
 		
 		Resource resource = null;
+		ResourceFactory resourceFactory = null;
 		boolean flagFlow;
 		
 		do {
@@ -35,27 +37,37 @@ public class Resource {
 			System.out.println("[2] Stadium");
 			System.out.println("[3] Training Center");
 			
-			int option = input.nextInt();
-			input.nextLine();
+			int option = 0;
+			
+			try {
+				option = input.nextInt();
+				input.nextLine();
+			} catch(InputMismatchException error01) {
+				input.nextLine();
+				System.out.println("You are not allowed to enter letters, just enter integer!");
+			}
 			
 			switch(option) {
 			
+				
 				case 1:
-					resource = new Bus();
+					resourceFactory = new BusFactory();
 					break; 
 				case 2:
-					resource = new Stadium();
+					resourceFactory = new StadiumFactory();
 					break;
 				case 3:
-					resource = new TrainingCenter();
+					resourceFactory = new TrainingCenterFactory();
 					break;
 				default:
-					System.out.println("Choose a true option, press any key to try again.");
+					System.out.println("Choose a true option, press enter to try again.");
 					input.nextLine();
 					flagFlow = true;
 			}
 			
 		} while(flagFlow);
+		
+		resource = resourceFactory.createResource();
 		
 		return resource;
 	

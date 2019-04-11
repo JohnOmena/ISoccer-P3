@@ -1,6 +1,6 @@
 package screen;
+import java.util.InputMismatchException;
 import java.util.Scanner;
-import database.Database;
 import fan.ContributionSetup;
 import system.Administrator;
 import useful.Utilities;
@@ -9,11 +9,13 @@ public class Start {
 	
 	static Scanner input = new Scanner(System.in);
 	
-	public void startSystemScreen(Administrator adm, Database database, ContributionSetup contributionSetup) {
+	public void startSystemScreen(Administrator adm, ContributionSetup contributionSetup) {
 		
-		boolean flagFlow = true;
+		boolean flagFlow = false;
+		boolean flagTest = true;
 		
 		do{
+			
 			Utilities.cleanScreen();
 			System.out.println("-----------------------");
 			System.out.println("#       ISoccer       #");
@@ -23,32 +25,46 @@ public class Start {
 			System.out.println("--------------------------");
 			System.out.println("=> Choose an option: ");
 			
-			int option = input.nextInt();
-			flagFlow = startSystemDecision(option, adm, database, contributionSetup);
-		
+			do{
+				
+				try{
+				 
+					int option = input.nextInt();
+					input.nextLine();
+					flagFlow = startSystemDecision(option, adm, contributionSetup);
+					flagTest = false;
+					
+				}catch (InputMismatchException erro1) {
+					
+					input.nextLine();
+					System.err.println("You are not allowed to enter letters, just enter integer! Try again:");
+					
+				}
+				
+			}while(flagTest);       
+			
 		} while(flagFlow);
 			
 	}
 	
-	public boolean startSystemDecision(int option, Administrator adm, Database database, ContributionSetup contributionSetup) {
+	public boolean startSystemDecision(int option, Administrator adm, ContributionSetup contributionSetup) {
 		
 		switch(option) {
 		
 			case 1:
 				if(adm.verifyAccount()) {
 					MenuSystem menuSystem = new MenuSystem();
-					menuSystem.menuSystemScreen(database, contributionSetup);
+					menuSystem.menuSystemScreen(contributionSetup);
 				}
 				break;
 			case 2:
 				System.exit(0);
 				break;
 			default:
-				System.out.println("Choose a true option!");
+				System.out.println("Choose a true option! Press enter to try again.");
+				input.nextLine();
 		}
-		
-		System.out.println("\nPress any key to try again.");
-		String pause = input.nextLine();
+	
 		return true;
 		
 	}

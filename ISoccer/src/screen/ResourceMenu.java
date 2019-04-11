@@ -1,6 +1,8 @@
 package screen;
+import java.util.InputMismatchException;
 import java.util.Scanner;
-import database.Database;
+
+import database.DatabaseSingleton;
 import resource.Resource;
 import useful.Utilities;
 
@@ -8,9 +10,10 @@ public class ResourceMenu {
 
 	Scanner input = new Scanner(System.in);
 	
-	public void resourceMenuScreen(Database database) {
+	public void resourceMenuScreen() {
 		
 		boolean flagFlow = true;
+		boolean flagTest = true;
 		
 		do{
 			Utilities.cleanScreen();
@@ -23,19 +26,33 @@ public class ResourceMenu {
 			System.out.println("[4] - Exit");
 			System.out.println("--------------------------");
 			System.out.println("=> Choose an option: ");
-	
-			int option = input.nextInt();
-			input.nextLine();
 			
-			flagFlow = resourceMenuDecision(option, database);
-			
+			do{
+				
+				try{
+				 
+					int option = input.nextInt();
+					input.nextLine();
+					flagFlow = resourceMenuDecision(option);
+					flagTest = false;
+					
+				}catch (InputMismatchException erro1) {
+					
+					input.nextLine();
+					System.err.println("You are not allowed to enter letters, just enter integer! Try again:");
+					
+				}
+				
+			}while(flagTest);
+
 		} while(flagFlow);
 	
 	}
 	
-	public boolean resourceMenuDecision(int option, Database database) {
+	public boolean resourceMenuDecision(int option) {
 		
 		Resource resource = new Resource();
+		DatabaseSingleton database = DatabaseSingleton.getInstance();
 		
 		switch(option) {
 			
@@ -55,10 +72,6 @@ public class ResourceMenu {
 				if(resource != null) {
 					resource.changeResourceCapacity();
 				}
-				
-				resource.showAllInformationResource();
-				input.nextLine();
-				
 				break;
 			case 4:
 				return false;

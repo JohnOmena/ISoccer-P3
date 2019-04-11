@@ -1,6 +1,7 @@
 package screen;
+import java.util.InputMismatchException;
 import java.util.Scanner;
-import database.Database;
+import database.DatabaseSingleton;
 import fan.ContributionSetup;
 import useful.Utilities;
 
@@ -8,9 +9,10 @@ public class ReportMenu {
 
 	Scanner input = new Scanner(System.in);
 	
-	public void reportMenuScreen(Database database, ContributionSetup contributionSetup) {
+	public void reportMenuScreen(ContributionSetup contributionSetup) {
 		
 		boolean flagFlow = true;
+		boolean flagTest = true;
 		
 		do{
 			Utilities.cleanScreen();
@@ -27,16 +29,31 @@ public class ReportMenu {
 			System.out.println("--------------------------");
 			System.out.println("=> Choose an option: ");
 	
-			int option = input.nextInt();
-			input.nextLine();
-			
-			flagFlow = reportMenuDecision(option, database, contributionSetup);
+			do{
+				
+				try{
+				 
+					int option = input.nextInt();
+					input.nextLine();
+					flagFlow = reportMenuDecision(option, contributionSetup);
+					flagTest = false;
+					
+				}catch (InputMismatchException erro1) {
+					
+					input.nextLine();
+					System.err.println("You are not allowed to enter letters, just enter integer! Try again:");
+					
+				}
+				
+			}while(flagTest);
 			
 		} while(flagFlow);
 	
 	}
 	
-	public boolean reportMenuDecision(int option, Database database, ContributionSetup contributionSetup) {
+	public boolean reportMenuDecision(int option, ContributionSetup contributionSetup) {
+			
+		DatabaseSingleton database = DatabaseSingleton.getInstance();
 		
 		switch(option) {
 			

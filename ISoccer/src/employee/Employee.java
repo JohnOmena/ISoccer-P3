@@ -1,4 +1,5 @@
 package employee;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import useful.Utilities;
 
@@ -81,8 +82,17 @@ public class Employee {
 			System.out.println("[7] President");
 			System.out.println("[8] Technician");
 			
-			int option = input.nextInt();
-			input.nextLine();
+			int option = 0;
+			
+			try {
+				option = input.nextInt();
+				input.nextLine();
+			} catch(InputMismatchException error01) {
+				
+				input.nextLine();
+				System.out.println("You are not allowed to enter letters, just enter integer!");
+				
+			}
 			
 			switch(option) {
 			
@@ -111,7 +121,7 @@ public class Employee {
 					employee = new Technician();
 					break;
 				default:
-					System.out.println("Choose a true option, press any key to try again.");
+					System.out.println("Choose a true option, press enter to try again.");
 					input.nextLine();
 					flagFlow = true;
 			}
@@ -124,6 +134,8 @@ public class Employee {
 	
 	public void setEmployeeData() {
 		
+		boolean flagTest = true;
+		
 		System.out.println("Name:");
 		setName(input.nextLine());
 		
@@ -133,9 +145,17 @@ public class Employee {
 		System.out.println("CPF:");
 		setCpf(input.nextLine());
 		
-		System.out.println("Salary:");
-		setSalary(input.nextDouble());
-		input.nextLine();
+		do {
+			try {
+				System.out.println("Salary:");
+				setSalary(input.nextDouble());
+				input.nextLine();
+				flagTest = false;
+			} catch(InputMismatchException error01) {
+				input.nextLine();
+				System.out.println("You are not allowed to enter letters");
+			}
+		} while(flagTest);
 		
 		System.out.println("Phone Number:");
 		setPhoneNumber(input.nextLine());

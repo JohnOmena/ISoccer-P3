@@ -1,5 +1,6 @@
 package fan;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import useful.Utilities;
@@ -86,9 +87,18 @@ public class Fan {
 			System.out.println("[2] Senior");
 			System.out.println("[3] Elite");
 			
-			int option = input.nextInt();
-			input.nextLine();
+			int option = 0;
 			
+			try {
+				option = input.nextInt();
+				input.nextLine();
+			} catch(InputMismatchException error01) {
+				
+				input.nextLine();
+				System.out.println("You are not allowed to enter letters, just enter integer!");
+				
+			}
+		
 			switch(option) {
 			
 				case 1:
@@ -101,7 +111,7 @@ public class Fan {
 					fan = new Elite();
 					break;
 				default:
-					System.out.println("Choose a true option, press any key to try again.");
+					System.out.println("Choose a true option, press enter to try again.");
 					input.nextLine();
 					flagFlow = true;
 			}

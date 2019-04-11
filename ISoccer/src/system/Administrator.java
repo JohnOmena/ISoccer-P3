@@ -45,8 +45,8 @@ public class Administrator {
 			return true;
 		} 
 		
-		System.out.println("Incorrect userAccount or password, press any key to continue.");
-		String pause = input.nextLine();
+		System.out.println("Incorrect userAccount or password, press enter to continue.");
+		input.nextLine();
 	
 		return false;
 		

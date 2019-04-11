@@ -1,5 +1,6 @@
 package database;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import employee.Employee;
 import employee.Player;
@@ -12,12 +13,24 @@ import resource.Stadium;
 import resource.TrainingCenter;
 import useful.Utilities;
 
-public class Database {
-
+public class DatabaseSingleton {
+	
+	private static DatabaseSingleton database = null;
+	
 	ArrayList<Employee> employees = new ArrayList<Employee>();
 	ArrayList<Fan> fans = new ArrayList<Fan>();
 	ArrayList<Resource> resources = new ArrayList<Resource>();	
 	Scanner input = new Scanner(System.in);
+	
+	public static DatabaseSingleton getInstance() {
+		
+		if (database == null) {
+			database = new DatabaseSingleton();
+		}
+           
+		return database;
+		
+	}
 	
 	public void addEmployee(Employee employee) {
 		this.employees.add(employee);
@@ -66,8 +79,15 @@ public class Database {
 			System.out.println("[2] Stadium");
 			System.out.println("[3] Training Center");
 			
-			int option = input.nextInt();
-			input.nextLine();
+			int option = 0;
+			
+			try {
+				option = input.nextInt();
+				input.nextLine();
+			} catch(InputMismatchException error01) {
+				input.nextLine();
+				System.out.println("You are not allowed to enter letters, just enter integer!");
+			}
 			
 			switch(option) {
 				
@@ -79,7 +99,7 @@ public class Database {
 							return resource;
 						}
 					}
-					System.out.println("\nWe do not have that bus, press any key to return to menu");
+					System.out.println("\nWe do not have that bus, press enter to return to menu");
 					input.nextLine();
 					break; 
 				case 2:
@@ -91,7 +111,7 @@ public class Database {
 							return resource;
 						}
 					}
-					System.out.println("\nWe do not have this stadium, press any key to return to menu");
+					System.out.println("\nWe do not have this stadium, press enter to return to menu");
 					input.nextLine();
 					break;
 				case 3:
@@ -103,11 +123,11 @@ public class Database {
 							return resource;
 						}
 					}
-					System.out.println("\nWe do not have this training center, press any key to return to menu");
+					System.out.println("\nWe do not have this training center, press enter to return to menu");
 					input.nextLine();
 					break;
 				default:
-					System.out.println("\nChoose a true option, press any key to try again.");
+					System.out.println("Choose a true option, press enter to try again.");
 					input.nextLine();
 					flagFlow = true;
 			}

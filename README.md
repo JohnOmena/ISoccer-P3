@@ -18,6 +18,9 @@
 0.14) Mostrar um relatório contendo as informações dos transportes (X)
 0.15) Mostrar um relatório contendo as informações de todos os torcedores bem como a quantidade ()
 
+
+
+
 1) Classes:
 
 1.1 Database

@@ -1,6 +1,7 @@
 package screen;
+import java.util.InputMismatchException;
 import java.util.Scanner;
-import database.Database;
+import database.DatabaseSingleton;
 import employee.Employee;
 import fan.ContributionSetup;
 import fan.Fan;
@@ -10,9 +11,10 @@ public class MenuSystem {
 
 	Scanner input = new Scanner(System.in);
 	
-	public void menuSystemScreen(Database database, ContributionSetup contributionSetup) {
+	public void menuSystemScreen(ContributionSetup contributionSetup) {
 		
 		boolean flagFlow = true;
+		boolean flagTest = true;
 		
 		do{
 			Utilities.cleanScreen();
@@ -28,16 +30,33 @@ public class MenuSystem {
 			System.out.println("[7] - Exit");
 			System.out.println("--------------------------");
 			System.out.println("=> Choose an option: ");
-	
-			int option = input.nextInt();
-			input.nextLine();
-			flagFlow = menuSystemDecision(option, database, contributionSetup);
+
+			
+			do{
+				
+				try{
+				 
+					int option = input.nextInt();
+					flagFlow = menuSystemDecision(option, contributionSetup);
+					input.nextLine();
+					flagTest = false;
+					
+				}catch (InputMismatchException erro1) {
+					
+					input.nextLine();
+					System.err.println("You are not allowed to enter letters, just enter integer! Try again:");
+					
+				}
+				
+			}while(flagTest);  
 			
 		} while(flagFlow);
 	
 	}
 	
-	public boolean menuSystemDecision(int option, Database database, ContributionSetup contributionSetup) {
+	public boolean menuSystemDecision(int option, ContributionSetup contributionSetup) {
+		
+		DatabaseSingleton database = DatabaseSingleton.getInstance();
 		
 		switch(option) {
 		
@@ -67,16 +86,16 @@ public class MenuSystem {
 				break;
 			case 5:
 				ReportMenu reportMenu = new ReportMenu();
-				reportMenu.reportMenuScreen(database, contributionSetup);
+				reportMenu.reportMenuScreen(contributionSetup);
 				break;			
 			case 6:
 				ResourceMenu resourceMenu = new ResourceMenu();
-				resourceMenu.resourceMenuScreen(database);
+				resourceMenu.resourceMenuScreen();
 				break;
 			case 7:
 				return false;
 			default:
-				System.out.println("\nChoose a true option, press any key to try again.");
+				System.out.println("\nChoose a true option, press enter to try again.");
 				input.nextLine();
 		}
 		

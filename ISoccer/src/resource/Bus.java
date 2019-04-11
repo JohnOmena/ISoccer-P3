@@ -42,7 +42,8 @@ public class Bus extends Resource{
 	
 	public void showAllInformationResource() {
 		
-		System.out.println("\nCar plate: " + getCarPlate());
+		System.out.println("\nCar plate: " + getCarPlate()
+						+ "\nChair: " + getTotalChairs());
 		
 		showBasicInformationResource();
 		
